@@ -1,6 +1,11 @@
 # Altair Dashboard
 *A simple solution to create dashboards from altair charts*
 
+## Setup
+```
+$ pip install .
+```
+
 ## Usage
 *Note:* Full example in examples/example_chart.py
 ```python
