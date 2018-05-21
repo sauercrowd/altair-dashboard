@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Import Vega 3 & Vega-Lite 2 (does not have to be from CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@3"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@2"></script>
+  <!-- Import vega-embed -->
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@3"></script>
+  <style>
+    html, body{
+      height:100%;
+      width: 100%;
+      margin: 0px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    #wrapper_hor{
+      display: flex;
+      justify-content: space-around;
+      flex-grow: 1;
+      flex-shrink: 0;
+      height: 100%;
+      flex-direction: row;
+    }
+    #wrapper_vert{
+      display: flex;
+      text-align: center;
+      padding: 10px;
+      justify-content: space-around;
+      flex-direction: column;
+    }
+    #header_wrapper{
+        padding: 3px;
+        flex-grow: 1;
+    }
+    #chart-selection{
+        padding: 5px 10px 5px 10px;
+    }
+    #vis{
+        flex-grow: 2;
+        padding: 5px;
+    }
+    .vega-actions a{
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+<div id="wrapper_hor">
+  <div id="wrapper_vert">
+    <div id="header_wrapper">
+        {% if len(charts) > 0 %}
+            <h1 id="chart-name"></h1>
+        {% else %}
+            <h1>No Chart found</h1>
+        {% end %}
+        <select id="chart-selection">
+            {% for i, chart in enumerate(charts) %}
+                {% if i ==0 %}
+                    <option onclick="chartSelected({{ i }}, '{{ chart }}')" selected>{{ chart }}</option>
+                {% else %}
+                    <option onclick="chartSelected({{ i }}, '{{ chart }}')" >{{ chart }}</option>
+                {% end %}
+            {% end %}
+        </select>
+    </div>
+    <div id="vis"></div>
+  </div>
+</div>
+
+<script type="text/javascript">
+{% if len(charts) > 0 %}
+   chartSelected(0, '{{ charts[0] }}')
+{% end %}
+
+function chartSelected(chartId, chartName){
+    document.getElementById("chart-name").innerText = chartName
+    var spec = "/chart/"+chartId
+    vegaEmbed('#vis', spec).then(function(result) {
+        // access view as result.view
+    }).catch(console.error);
+}
+</script>
+</body>
+</html>

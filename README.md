@@ -1,9 +1,12 @@
-import sys
-sys.path.insert(0,'../altair-dashboard')
-from altair_dashboard import AltairDashboard
-import altair as alt
-import pandas as pd
+# Altair Dashboard
+*A simple solution to create dashboards from altair charts*
 
+## Usage
+*Note:* Full example in examples/example_chart.py
+```python
+# ...
+
+# Create your data
 df = pd.DataFrame([
     [1,2,"x"],
     [2,3,"x"],
@@ -13,6 +16,7 @@ df = pd.DataFrame([
     [3,1,"y"],
 ], columns=["x","y","type"])
 
+# Create two altair charts
 c1 = alt.Chart(df).mark_line().encode(
     x="x",
     y="y",
@@ -27,8 +31,15 @@ c2 = alt.Chart(df).mark_bar().encode(
 
 dashboard = AltairDashboard()
 
+# Add them to the dashboard
 dashboard.add_chart("Line Chart", c1)
 dashboard.add_chart("Bar Chart", c2)
 dashboard.add_chart("Both Charts", c1 | c2)
 
 dashboard.listen(port=8080)
+
+```
+
+## Screencast
+
+![](./screencast.gif)
