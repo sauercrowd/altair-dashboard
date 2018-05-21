@@ -1,4 +1,6 @@
 # Altair Dashboard
+[![Build Status](https://travis-ci.org/sauercrowd/altair-dashboard.svg?branch=master)](https://travis-ci.org/sauercrowd/altair-dashboard)
+
 *A simple solution to create dashboards on the fly with altair charts*
 
 ## Setup
