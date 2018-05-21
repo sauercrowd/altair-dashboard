@@ -9,6 +9,7 @@ $ pip install .
 ## Usage
 *Note:* Full example in examples/example_chart.py
 ```python
+from altair_dashboard import AltairDashboard
 # ...
 
 # Create your data
