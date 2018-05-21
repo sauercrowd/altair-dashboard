@@ -2,6 +2,7 @@
 from altair_dashboard import AltairDashboard
 import altair as alt
 import pandas as pd
+import numpy as np
 
 df = pd.DataFrame([
     [1,2,"x"],
