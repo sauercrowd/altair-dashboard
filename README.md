@@ -1,5 +1,5 @@
 # Altair Dashboard
-*A simple solution to create dashboards from altair charts*
+*A simple solution to create dashboards on the fly with altair charts*
 
 ## Setup
 ```
