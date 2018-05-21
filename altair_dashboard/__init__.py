@@ -2,7 +2,8 @@ from chart_handler import ChartHandler
 from main_handler import MainHandler
 import tornado
 from collections import namedtuple
-import altair as alt
+
+name = "altair_dashboard"
 
 class AltairDashboard:
     def __init__(self):

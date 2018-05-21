@@ -1,5 +1,4 @@
-import sys
-sys.path.insert(0,'../altair-dashboard')
+#import altair_dashboard
 from altair_dashboard import AltairDashboard
 import altair as alt
 import pandas as pd

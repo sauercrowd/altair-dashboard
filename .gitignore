@@ -1,1 +1,4 @@
 __pycache__/*
+dist/*
+build/*
+altair_dashboard.egg-info/
